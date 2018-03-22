@@ -1,8 +1,29 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: "Lato", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.btn-outline-primary:hover, .btn-outline-primary:active {
+  background-color: none !important;
+}
+
+#messageDiv {
+  position: relative;
+  left: 39%;
+  top: 5%;
+}
+
+#messageDiv button {
+  margin-top: 4vh;
+}
+
+.input-group-addon {
+  background-color: transparent;
+  border: none;
+  border-color: none;
+}
+
+*:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+  -webkit-appearance: none;
 }
