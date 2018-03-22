@@ -2,65 +2,103 @@
 <html>
 
 <head>
-    <title>
-        <%= title %>
-    </title>
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-        crossorigin="anonymous">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title>
+    <%= title %>
+  </title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 
 <body>
-    <section>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div id = "errorDiv" class="alert alert-warning alert-dismissible fade" role="alert">
-                        <p id="error"></p>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div id="authDiv" class="alert alert-success alert-dismissible fade" role="alert">
-                        <p id="message"></p>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row" id="intro">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" id="warning">
-                    <p>Enter a hashtag below</p>
-                    <div class="col-md-3" id="hashTagDiv">
-                        <form id="hashTagForm">
-                            <div class="input-group">
-                                <div class="input-group-addon">&#x23</div>
-                                <input type="text" class="form-control" id="hashTag" name="hashTag" placeholder="e.g wakanda">
-                            </div>
-                            <button type= "submit" class="btn btn-warning" id="submithashTag" required>Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div id="errorDiv" class="alert alert-warning alert-dismissible fade" role="alert">
+            <p id="error"></p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-        crossorigin="anonymous"></script>
-    <script src="/javascripts/script.js"></script>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div id="authDiv" class="alert alert-success alert-dismissible fade" role="alert">
+            <p id="message"></p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" id="intro">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" id="warning">
+          <p>Enter a hashtag below</p>
+          <div class="col-md-3" id="hashTagDiv">
+            <form id="hashTagForm">
+              <div class="input-group">
+                <div class="input-group-addon">&#x23</div>
+                <input type="text" class="form-control" id="hashTag" name="hashTag" placeholder="e.g wakanda">
+              </div>
+              <button type="submit" class="btn btn-warning" id="submithashTag" required>Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="results">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Document-level Results</h3>
+          <table class="table table-hover table-bordered">
+            <thead class="table-success">
+              <tr>
+                <th>Tone</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody id="tones">
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+
+          <div class="col-md-12">
+              <h3>Sentence-level Results</h3>
+            <table class="table table-hover table-bordered">
+              <thead class="table-success">
+                <tr>
+                  <th>Sentence</th>
+                  <th>Tone</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody id="sentence_results">
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+  <script src="/javascripts/script.js"></script>
 </body>
 
 </html>

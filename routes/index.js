@@ -21,6 +21,7 @@ router.post('/', function (req, res, next) {
     .then((tweets) => toneAnalyzer(tweets))
     .then((tones) => res.json(tones))
     .catch((err) => {
+      console.error(err);
       reject(Error(err));
     });
 
