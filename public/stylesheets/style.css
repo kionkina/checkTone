@@ -6,13 +6,13 @@ body {
   background-color: none !important;
 }
 
-#messageDiv {
+#hashTagDiv {
   position: relative;
   left: 39%;
   top: 5%;
 }
 
-#messageDiv button {
+#hashTagDiv button {
   margin-top: 4vh;
 }
 

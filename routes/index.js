@@ -1,22 +1,29 @@
 var express = require('express');
 var router = express.Router();
+let formatInput = require('../helpers/formatInput');
+let getTweets = require('../helpers/getTweets');
 let toneAnalyzer = require('../helpers/toneAnalyzer');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Tone Checker' });
+router.get('/', function (req, res, next) {
+  res.render('index', {
+    title: 'Tone Checker'
+  });
 });
 
 /* GET home page. */
-router.post('/', function(req, res, next) {
-  let message=  req.body.text;
-  toneAnalyzer(message).then((result) => {
-    console.log(result);
-    res.json(result);
-  }).catch(err => {
-      console.log(err);
-  });
-  // res.render('index', { title: 'Express' });
+router.post('/', function (req, res, next) {
+  let hashTag = req.body.hashTag;
+
+  let cleanedHashTag = formatInput(hashTag);
+
+  getTweets(cleanedHashTag)
+    .then((tweets) => toneAnalyzer(tweets))
+    .then((tones) => res.json(tones))
+    .catch((err) => {
+      reject(Error(err));
+    });
+
 });
 
 module.exports = router;

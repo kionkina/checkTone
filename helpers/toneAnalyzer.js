@@ -10,16 +10,17 @@ const getTone = (statement) => {
 
     var params = {
         tone_input: statement,
-        content_type: 'text/plain',
+        content_type: 'application/json',
         sentences: true
     };
 
     return new Promise((resolve, reject) => {
         tone_analyzer.tone(params, function (error, response) {
-            if (error)
+            if (error) {
                 reject(Error(error));
-            else
-                resolve(JSON.stringify(response, null, 2));
+            } else {
+                resolve(response);
+            }
         });
 
     });
