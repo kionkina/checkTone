@@ -4,14 +4,14 @@ let formatInput = require('../helpers/formatInput');
 let getTweets = require('../helpers/getTweets');
 let toneAnalyzer = require('../helpers/toneAnalyzer');
 
-/* GET home page. */
+
 router.get('/', function (req, res, next) {
   res.render('index', {
     title: 'Tone Checker'
   });
 });
 
-/* GET home page. */
+
 router.post('/', function (req, res, next) {
   let hashTag = req.body.hashTag;
 
