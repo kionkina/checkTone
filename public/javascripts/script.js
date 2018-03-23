@@ -12,7 +12,7 @@ $("#hashTagForm").submit(function (event) {
             $("#results").show();
             data.document_tone.tones.forEach(element => {
 
-                $("#tones").append(`<tr><td>${element.tone_name}</td><td>${(element.score*100).toFixed(2)}</td></tr>`);
+                $("#tones").append(`<tr><td>${element.tone_name}%</td><td>${(element.score*100).toFixed(2)}%</td></tr>`);
             });
 
             data.sentences_tone.forEach(element => {
