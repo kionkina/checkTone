@@ -10,12 +10,12 @@ $("#hashTagForm").submit(function (event) {
         $.post("/", $("#hashTagForm").serialize(), function (data) {
             $("#intro").empty();
             $("#results").show();
-            data.document_tone.tones.forEach(element => {
+            data.result.document_tone.tones.forEach(element => {
 
                 $("#tones").append(`<tr><td>${element.tone_name}%</td><td>${(element.score*100).toFixed(2)}%</td></tr>`);
             });
 
-            data.sentences_tone.forEach(element => {
+            data.result.sentences_tone.forEach(element => {
 
                 if(element.tones.length != 0) {
                     let sentence = element.text;
